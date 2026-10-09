@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "Bose QuietComfort 45",
+    "marca": "Bose",
+    "categoria": "Audio",
+    "precioNormal": 259990,
+    "precioOferta": 199990,
+    "descripcion": "Audifonos inalambricos con cancelacion activa de ruido y hasta 24 horas de bateria.",
+    "imagen": "bose-qc.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Sony WH-1000XM4",
+    "marca": "Sony",
+    "categoria": "Audio",
+    "precioNormal": 279990,
+    "precioOferta": null,
+    "descripcion": "Audifonos premium con sonido adaptativo y conexion multipunto.",
+    "imagen": "sony-wh.png"
+  },
+  {
+    "id": 3,
+    "nombre": "JBL Flip 6",
+    "marca": "JBL",
+    "categoria": "Audio",
+    "precioNormal": 89990,
+    "precioOferta": 69990,
+    "descripcion": "Parlante portatil resistente al agua con sonido potente y bateria de 12 horas.",
+    "imagen": "jbl-flip.png"
+  },
+  {
+    "id": 4,
+    "nombre": "Shure MV7",
+    "marca": "Shure",
+    "categoria": "Audio",
+    "precioNormal": 249990,
+    "precioOferta": null,
+    "descripcion": "Microfono hibrido USB/XLR pensado para podcast y streaming profesional.",
+    "imagen": "shure-mv7.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Samsung Galaxy Watch 6",
+    "marca": "Samsung",
+    "categoria": "Gadgets",
+    "precioNormal": 229990,
+    "precioOferta": 189990,
+    "descripcion": "Smartwatch con monitoreo de salud avanzado y pantalla AMOLED.",
+    "imagen": "samsung-watch.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Garmin Fenix 7",
+    "marca": "Garmin",
+    "categoria": "Gadgets",
+    "precioNormal": 649990,
+    "precioOferta": null,
+    "descripcion": "Reloj GPS multideporte con mapas topograficos y bateria de larga duracion.",
+    "imagen": "garmin-fenix.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Anker PowerCore 20000",
+    "marca": "Anker",
+    "categoria": "Gadgets",
+    "precioNormal": 39990,
+    "precioOferta": 29990,
+    "descripcion": "Bateria portatil de 20000 mAh con carga rapida para varios dispositivos.",
+    "imagen": "anker-power.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Samsung Galaxy Buds2 Pro",
+    "marca": "Samsung",
+    "categoria": "Gadgets",
+    "precioNormal": 159990,
+    "precioOferta": 129990,
+    "descripcion": "Audifonos inalambricos intraaurales con cancelacion de ruido inteligente.",
+    "imagen": "samsung-buds.png"
+  }
+]

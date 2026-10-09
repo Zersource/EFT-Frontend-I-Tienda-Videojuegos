@@ -1,0 +1,11 @@
+/* index.css
+   Reset minimo. El grueso del estilo lo entregan Bootstrap 5 (CDN)
+   y App.css (estilos propios de esta aplicacion). */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
