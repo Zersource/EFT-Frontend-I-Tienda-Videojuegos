@@ -5,7 +5,7 @@
 
 import ProductCard from "./ProductCard";
 
-function ProductList({ productos, cantidadPorProducto, onAgregar }) {
+function ProductList({ productos, cantidadPorProducto, onAgregar, modoAdmin, onEliminar }) {
   if (productos.length === 0) {
     return (
       <div className="alert alert-warning" role="status">
@@ -22,6 +22,8 @@ function ProductList({ productos, cantidadPorProducto, onAgregar }) {
           producto={producto}
           cantidadEnCarrito={cantidadPorProducto[producto.id] ?? 0}
           onAgregar={onAgregar}
+          modoAdmin={modoAdmin}
+          onEliminar={onEliminar}
         />
       ))}
     </div>

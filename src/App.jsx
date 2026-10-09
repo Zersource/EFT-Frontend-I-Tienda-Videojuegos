@@ -10,6 +10,7 @@ import Filtros from "./components/Filtros";
 import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
 import Contacto from "./components/Contacto";
+import AdminJuegos from "./components/AdminJuegos";
 import { precioFinal } from "./utils/precios";
 import { normalizar } from "./utils/texto";
 import "./App.css";
@@ -42,6 +43,7 @@ function App() {
   const [carritoAbierto, setCarritoAbierto] = useState(false);
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("Todos");
+  const [modoAdmin, setModoAdmin] = useState(false); // muestra el alta y la baja de juegos
 
   // ---- Efecto: cargar el catalogo desde el JSON ----
   // Se ejecuta al montar App (y de nuevo si cambia "intento"). Al terminar,
@@ -129,6 +131,30 @@ function App() {
     setCarrito([]);
   }
 
+  // ---- Acciones sobre el catalogo (modo administrador) ----
+  // Agrega un juego al estado. El id nuevo es el mayor existente + 1. Despues
+  // se limpian los filtros para que el juego recien agregado sea visible.
+  function agregarJuego(juego) {
+    setProductos((prev) => {
+      const nuevoId = Math.max(0, ...prev.map((p) => p.id)) + 1;
+      return [...prev, { ...juego, id: nuevoId }];
+    });
+    setBusqueda("");
+    setCategoria("Todos");
+  }
+
+  // Elimina un juego del catalogo. Tambien se saca del carrito (ya no se vende)
+  // y, si era el ultimo de su categoria, se vuelve al filtro "Todos".
+  function eliminarJuego(idJuego) {
+    const eliminado = productos.find((p) => p.id === idJuego);
+    const quedanEnCategoria = productos.some(
+      (p) => p.id !== idJuego && p.categoria === eliminado?.categoria
+    );
+    setProductos((prev) => prev.filter((p) => p.id !== idJuego));
+    setCarrito((prev) => prev.filter((item) => item.producto.id !== idJuego));
+    if (!quedanEnCategoria && categoria === eliminado?.categoria) setCategoria("Todos");
+  }
+
   // Vuelve a pedir el catalogo despues de un error
   function reintentarCarga() {
     setErrorCarga(null);
@@ -187,9 +213,25 @@ function App() {
 
         {/* Catalogo: destino del enlace "Catalogo" del navbar */}
         <section id="catalogo" aria-labelledby="titulo-catalogo">
-          <h2 id="titulo-catalogo" className="h3 mb-3">
-            Catálogo de videojuegos
-          </h2>
+          <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <h2 id="titulo-catalogo" className="h3 mb-0">
+              Catálogo de videojuegos
+            </h2>
+            {/* Interruptor de modo administrador: activa alta y baja de juegos */}
+            <div className="form-check form-switch mb-0">
+              <input
+                id="modo-admin"
+                type="checkbox"
+                role="switch"
+                className="form-check-input"
+                checked={modoAdmin}
+                onChange={(e) => setModoAdmin(e.target.checked)}
+              />
+              <label htmlFor="modo-admin" className="form-check-label">
+                Modo administrador
+              </label>
+            </div>
+          </div>
 
           {/* Renderizado condicional segun el estado de la carga:
               cargando -> spinner, error -> mensaje con reintento, ok -> catalogo */}
@@ -213,6 +255,14 @@ function App() {
             </div>
           ) : (
             <>
+              {/* Renderizado condicional: el formulario de alta solo en modo administrador */}
+              {modoAdmin && (
+                <AdminJuegos
+                  categorias={categorias}
+                  nombresExistentes={productos.map((p) => p.nombre)}
+                  onAgregar={agregarJuego}
+                />
+              )}
               <Filtros
                 busqueda={busqueda}
                 categoria={categoria}
@@ -224,6 +274,8 @@ function App() {
                 productos={productosFiltrados}
                 cantidadPorProducto={cantidadPorProducto}
                 onAgregar={agregarAlCarrito}
+                modoAdmin={modoAdmin}
+                onEliminar={eliminarJuego}
               />
             </>
           )}

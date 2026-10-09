@@ -4,11 +4,12 @@
 // onAgregar como props. Con renderizado condicional decide:
 //  - si muestra precio de oferta o precio normal
 //  - si el boton dice "Agregar al carrito" o "En el carrito"
+//  - si aparece el boton "Eliminar del catalogo" (solo en modo administrador)
 
 import { resolverImagen } from "../utils/imagenes";
 import { formatearPrecio } from "../utils/precios";
 
-function ProductCard({ producto, cantidadEnCarrito, onAgregar }) {
+function ProductCard({ producto, cantidadEnCarrito, onAgregar, modoAdmin, onEliminar }) {
   const tieneOferta = producto.precioOferta !== null;
   const enCarrito = cantidadEnCarrito > 0;
 
@@ -57,6 +58,18 @@ function ProductCard({ producto, cantidadEnCarrito, onAgregar }) {
             ? `En el carrito (${cantidadEnCarrito})`
             : "Agregar al carrito"}
         </button>
+
+        {/* Renderizado condicional: eliminar solo existe en modo administrador */}
+        {modoAdmin && (
+          <button
+            type="button"
+            className="btn btn-outline-danger btn-sm mt-2"
+            onClick={() => onEliminar(producto.id)}
+            aria-label={`Eliminar ${producto.nombre} del catálogo`}
+          >
+            Eliminar del catálogo
+          </button>
+        )}
       </div>
     </article>
   );
