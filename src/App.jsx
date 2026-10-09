@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Filtros from "./components/Filtros";
 import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
+import Contacto from "./components/Contacto";
 import { precioFinal } from "./utils/precios";
 import "./App.css";
 
@@ -223,6 +224,9 @@ function App() {
             </>
           )}
         </section>
+
+        {/* Formulario de contacto: destino del enlace "Contacto" del navbar */}
+        <Contacto />
       </main>
 
       <footer className="container py-3 text-center text-muted small border-top">
