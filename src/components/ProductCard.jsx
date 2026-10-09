@@ -22,7 +22,7 @@ function ProductCard({ producto, cantidadEnCarrito, onAgregar }) {
         />
         <div className="card-body d-flex flex-column">
           <span className="badge bg-secondary align-self-start mb-2">
-            {producto.marca}
+            {producto.estudio}
           </span>
           <h2 className="card-title h6">{producto.nombre}</h2>
           <p className="card-text text-muted small flex-grow-1">

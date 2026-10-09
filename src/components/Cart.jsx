@@ -55,7 +55,7 @@ function Cart({
           {/* Renderizado condicional: carrito vacio vs con productos */}
           {items.length === 0 ? (
             <p className="text-muted text-center mb-0">
-              Tu carrito esta vacio. Agrega productos desde el catalogo.
+              Tu carrito está vacío. Agrega videojuegos desde el catálogo.
             </p>
           ) : (
             <ul className="list-group list-group-flush">

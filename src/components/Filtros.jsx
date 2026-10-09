@@ -9,8 +9,8 @@ function Filtros({ busqueda, categoria, categorias, onBuscar, onCategoria }) {
         <input
           type="search"
           className="form-control"
-          placeholder="Buscar por nombre, marca o descripcion..."
-          aria-label="Buscar productos"
+          placeholder="Buscar por título, estudio o descripción..."
+          aria-label="Buscar videojuegos"
           value={busqueda}
           onChange={(e) => onBuscar(e.target.value)}
         />
@@ -18,11 +18,11 @@ function Filtros({ busqueda, categoria, categorias, onBuscar, onCategoria }) {
       <div className="col-12 col-md-4">
         <select
           className="form-select"
-          aria-label="Filtrar por categoria"
+          aria-label="Filtrar por categoría"
           value={categoria}
           onChange={(e) => onCategoria(e.target.value)}
         >
-          <option value="Todos">Todas las categorias</option>
+          <option value="Todos">Todas las categorías</option>
           {categorias.map((cat) => (
             <option key={cat} value={cat}>
               {cat}

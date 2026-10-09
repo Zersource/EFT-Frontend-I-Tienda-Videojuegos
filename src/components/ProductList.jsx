@@ -9,7 +9,7 @@ function ProductList({ productos, cantidadPorProducto, onAgregar }) {
   if (productos.length === 0) {
     return (
       <div className="alert alert-warning" role="status">
-        No se encontraron productos con los filtros aplicados.
+        No se encontraron videojuegos con los filtros aplicados.
       </div>
     );
   }

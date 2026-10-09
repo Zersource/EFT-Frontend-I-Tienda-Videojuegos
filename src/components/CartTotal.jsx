@@ -8,7 +8,7 @@ function CartTotal({ cantidadTotal, total }) {
   return (
     <>
       <div className="d-flex justify-content-between small text-muted mb-1">
-        <span>Total de productos</span>
+        <span>Total de videojuegos</span>
         <span>{cantidadTotal}</span>
       </div>
       <div className="d-flex justify-content-between fw-bold mb-3">

@@ -2,7 +2,7 @@
 // Componente raiz. Concentra el estado de la aplicacion (catalogo, carrito,
 // visibilidad del panel y filtros) y lo distribuye a los componentes
 // hijos mediante props, junto con las funciones que lo modifican.
-// El catalogo se carga desde public/products.json con useEffect + fetch.
+// El catalogo se carga desde public/juegos.json con useEffect + fetch.
 
 import { useState, useEffect, useCallback } from "react";
 import Navbar from "./components/Navbar";
@@ -12,11 +12,11 @@ import Cart from "./components/Cart";
 import { precioFinal } from "./utils/precios";
 import "./App.css";
 
-const CLAVE_CARRITO = "technova-carrito-s8";
+const CLAVE_CARRITO = "superjuegos-carrito-eft";
 
-// products.json vive en public/. BASE_URL incluye la ruta del repositorio
+// juegos.json vive en public/. BASE_URL incluye la ruta del repositorio
 // en GitHub Pages, asi la URL funciona tanto en local como en produccion.
-const URL_PRODUCTOS = `${import.meta.env.BASE_URL}products.json`;
+const URL_PRODUCTOS = `${import.meta.env.BASE_URL}juegos.json`;
 
 // Lee el carrito guardado (si existe y es valido). Se usa como
 // inicializador perezoso de useState, asi solo corre una vez.
@@ -154,7 +154,7 @@ function App() {
     const coincideCategoria = categoria === "Todos" || p.categoria === categoria;
     const coincideTexto =
       texto === "" ||
-      [p.nombre, p.marca, p.descripcion].some((campo) =>
+      [p.nombre, p.estudio, p.descripcion].some((campo) =>
         campo.toLowerCase().includes(texto)
       );
     return coincideCategoria && coincideTexto;
@@ -209,7 +209,7 @@ function App() {
       </main>
 
       <footer className="container py-3 text-center text-muted small border-top">
-        TechNova Store &middot; Actividad sumativa Semana 8 &middot; React + Vite
+        Superjuegos &middot; Evaluación Final Transversal &middot; React + Vite
       </footer>
 
       {/* El panel del carrito solo se monta cuando carritoAbierto es true */}
