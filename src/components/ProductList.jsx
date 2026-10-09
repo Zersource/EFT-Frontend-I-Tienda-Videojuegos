@@ -1,5 +1,5 @@
 // ProductList.jsx
-// Recibe el arreglo de productos y arma el grid, delegando cada tarjeta
+// Recibe el arreglo de juegos y arma el grid (CSS Grid, ver App.css), delegando cada tarjeta
 // individual al componente ProductCard (reutilizacion de componentes).
 // Si no hay productos (filtros sin coincidencias) muestra un mensaje.
 
@@ -15,7 +15,7 @@ function ProductList({ productos, cantidadPorProducto, onAgregar }) {
   }
 
   return (
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+    <div className="catalogo-grid">
       {productos.map((producto) => (
         <ProductCard
           key={producto.id}

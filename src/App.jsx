@@ -168,44 +168,61 @@ function App() {
       />
 
       <main className="container py-4">
-        <h1 className="h4 mb-3">Catalogo de productos</h1>
+        {/* Seccion de bienvenida: destino del enlace "Inicio" del navbar */}
+        <section id="inicio" className="hero rounded-4 text-white p-4 p-md-5 mb-5">
+          <h1 className="display-5 fw-bold">Los mejores videojuegos, al mejor precio</h1>
+          <p className="lead mb-4">
+            Aventura, acción, estrategia y carreras. Elige tu próximo juego y
+            súmalo al carrito.
+          </p>
+          <a href="#catalogo" className="btn btn-warning btn-lg">
+            Ver catálogo
+          </a>
+        </section>
 
-        {/* Renderizado condicional segun el estado de la carga:
-            cargando -> spinner, error -> mensaje con reintento, ok -> catalogo */}
-        {cargando ? (
-          <div className="text-center py-5" role="status">
-            <div className="spinner-border text-primary" aria-hidden="true"></div>
-            <p className="mt-3 mb-0 text-muted">Cargando productos...</p>
-          </div>
-        ) : errorCarga ? (
-          <div className="alert alert-danger" role="alert">
-            <p className="mb-2">
-              No se pudo cargar el catalogo de productos ({errorCarga}).
-            </p>
-            <button
-              type="button"
-              className="btn btn-outline-danger btn-sm"
-              onClick={reintentarCarga}
-            >
-              Reintentar
-            </button>
-          </div>
-        ) : (
-          <>
-            <Filtros
-              busqueda={busqueda}
-              categoria={categoria}
-              categorias={categorias}
-              onBuscar={setBusqueda}
-              onCategoria={setCategoria}
-            />
-            <ProductList
-              productos={productosFiltrados}
-              cantidadPorProducto={cantidadPorProducto}
-              onAgregar={agregarAlCarrito}
-            />
-          </>
-        )}
+        {/* Catalogo: destino del enlace "Catalogo" del navbar */}
+        <section id="catalogo" aria-labelledby="titulo-catalogo">
+          <h2 id="titulo-catalogo" className="h3 mb-3">
+            Catálogo de videojuegos
+          </h2>
+
+          {/* Renderizado condicional segun el estado de la carga:
+              cargando -> spinner, error -> mensaje con reintento, ok -> catalogo */}
+          {cargando ? (
+            <div className="text-center py-5" role="status">
+              <div className="spinner-border text-primary" aria-hidden="true"></div>
+              <p className="mt-3 mb-0 text-muted">Cargando videojuegos...</p>
+            </div>
+          ) : errorCarga ? (
+            <div className="alert alert-danger" role="alert">
+              <p className="mb-2">
+                No se pudo cargar el catálogo de videojuegos ({errorCarga}).
+              </p>
+              <button
+                type="button"
+                className="btn btn-outline-danger btn-sm"
+                onClick={reintentarCarga}
+              >
+                Reintentar
+              </button>
+            </div>
+          ) : (
+            <>
+              <Filtros
+                busqueda={busqueda}
+                categoria={categoria}
+                categorias={categorias}
+                onBuscar={setBusqueda}
+                onCategoria={setCategoria}
+              />
+              <ProductList
+                productos={productosFiltrados}
+                cantidadPorProducto={cantidadPorProducto}
+                onAgregar={agregarAlCarrito}
+              />
+            </>
+          )}
+        </section>
       </main>
 
       <footer className="container py-3 text-center text-muted small border-top">

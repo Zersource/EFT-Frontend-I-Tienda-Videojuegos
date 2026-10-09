@@ -77,3 +77,33 @@ body {
 footer {
   margin-top: 1rem;
 }
+
+/* ---- Superjuegos: navegacion, portada y grilla del catalogo ---- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* El navbar es sticky: deja espacio para que los enlaces ancla
+   (#inicio, #catalogo, #contacto) no queden tapados por el. */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, #212529 0%, #3d1f6d 60%, #6f2dbd 100%);
+}
+
+/* Grilla del catalogo con CSS Grid: tantas columnas como quepan (minimo
+   230px cada una) y se reparte el espacio sobrante. Sin media queries. */
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
