@@ -1,5 +1,5 @@
 {
-  "name": "s8-react-hooks-useeffect",
+  "name": "eft-frontend-i-tienda-videojuegos",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -23,5 +23,5 @@
     "oxlint": "^1.81.0",
     "vite": "^8.3.0"
   },
-  "description": "TechNova Store - Actividad sumativa S8 PFY2201: useState, useEffect y renderizado condicional en React"
+  "description": "Superjuegos - Evaluación Final Transversal PFY2201: tienda de videojuegos con HTML, CSS, JavaScript, Bootstrap 5 y React"
 }
