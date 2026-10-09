@@ -11,6 +11,7 @@ import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
 import Contacto from "./components/Contacto";
 import { precioFinal } from "./utils/precios";
+import { normalizar } from "./utils/texto";
 import "./App.css";
 
 const CLAVE_CARRITO = "superjuegos-carrito-eft";
@@ -45,27 +46,29 @@ function App() {
   // ---- Efecto: cargar el catalogo desde el JSON ----
   // Se ejecuta al montar App (y de nuevo si cambia "intento"). Al terminar,
   // actualiza el estado con los datos y React vuelve a renderizar la lista.
+  // AbortController cancela de verdad la peticion HTTP si el efecto se limpia
+  // (por ejemplo, React StrictMode en desarrollo o un "Reintentar" rapido).
   useEffect(() => {
-    let cancelado = false; // evita actualizar estado si el efecto ya fue limpiado
+    const controlador = new AbortController();
 
     async function cargarProductos() {
       try {
-        const respuesta = await fetch(URL_PRODUCTOS);
+        const respuesta = await fetch(URL_PRODUCTOS, { signal: controlador.signal });
         if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
         const datos = await respuesta.json();
         if (!Array.isArray(datos)) throw new Error("Formato de datos invalido");
-        if (!cancelado) setProductos(datos);
+        setProductos(datos);
       } catch (err) {
-        if (!cancelado) setErrorCarga(err.message);
+        // Una peticion cancelada a proposito no es un error para el usuario
+        if (err.name === "AbortError") return;
+        setErrorCarga(err.message);
       } finally {
-        if (!cancelado) setCargando(false);
+        if (!controlador.signal.aborted) setCargando(false);
       }
     }
 
     cargarProductos();
-    return () => {
-      cancelado = true;
-    };
+    return () => controlador.abort(); // limpieza: cancela la peticion en curso
   }, [intento]);
 
   // ---- Efecto: persistir el carrito cada vez que cambia ----
@@ -150,13 +153,14 @@ function App() {
   );
 
   const categorias = [...new Set(productos.map((p) => p.categoria))];
-  const texto = busqueda.trim().toLowerCase();
+  // La busqueda ignora mayusculas y tildes (utils/texto.js)
+  const texto = normalizar(busqueda);
   const productosFiltrados = productos.filter((p) => {
     const coincideCategoria = categoria === "Todos" || p.categoria === categoria;
     const coincideTexto =
       texto === "" ||
       [p.nombre, p.estudio, p.descripcion].some((campo) =>
-        campo.toLowerCase().includes(texto)
+        normalizar(campo).includes(texto)
       );
     return coincideCategoria && coincideTexto;
   });
