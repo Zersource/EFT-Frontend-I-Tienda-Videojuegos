@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "nombre": "Eco del Abismo",
+    "estudio": "Marea Negra",
+    "categoria": "Aventura",
+    "precioNormal": 29990,
+    "precioOferta": 22990,
+    "descripcion": "Explora ruinas submarinas y descifra el lenguaje de una civilización perdida bajo el océano.",
+    "imagen": "eco-del-abismo.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Reino de Cenizas",
+    "estudio": "Taller Brasa",
+    "categoria": "Aventura",
+    "precioNormal": 34990,
+    "precioOferta": null,
+    "descripcion": "Recorre un reino devastado por el fuego y reconstruye sus ciudades en una aventura de mundo abierto.",
+    "imagen": "reino-de-cenizas.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Faro de Neblina",
+    "estudio": "Luciérnaga Games",
+    "categoria": "Aventura",
+    "precioNormal": 19990,
+    "precioOferta": 14990,
+    "descripcion": "Un guardafaros, una costa envuelta en niebla y un misterio que solo se resuelve al caer la noche.",
+    "imagen": "faro-de-neblina.png"
+  },
+  {
+    "id": 4,
+    "nombre": "Neon Vanguard",
+    "estudio": "Pulsar Interactive",
+    "categoria": "Acción",
+    "precioNormal": 39990,
+    "precioOferta": 29990,
+    "descripcion": "Combates a toda velocidad en una ciudad de neón: esquiva, dispara y domina cada distrito.",
+    "imagen": "neon-vanguard.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Hierro y Tormenta",
+    "estudio": "Forja Norte",
+    "categoria": "Acción",
+    "precioNormal": 44990,
+    "precioOferta": null,
+    "descripcion": "Un shooter cooperativo para cuatro jugadores en fortalezas de acero azotadas por tormentas eléctricas.",
+    "imagen": "hierro-y-tormenta.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Sombra Eléctrica",
+    "estudio": "Kilo Sur",
+    "categoria": "Acción",
+    "precioNormal": 24990,
+    "precioOferta": 19990,
+    "descripcion": "Sigilo y reflejos bajo la luna: muévete entre las sombras y apaga la red eléctrica de la ciudad.",
+    "imagen": "sombra-electrica.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Imperio Austral",
+    "estudio": "Cóndor Digital",
+    "categoria": "Estrategia",
+    "precioNormal": 27990,
+    "precioOferta": null,
+    "descripcion": "Funda una nación en el fin del mundo, gestiona recursos y expande tu territorio por turnos.",
+    "imagen": "imperio-austral.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Colonia Cero",
+    "estudio": "Órbita Estudio",
+    "categoria": "Estrategia",
+    "precioNormal": 32990,
+    "precioOferta": 25990,
+    "descripcion": "Construye la primera colonia humana en un planeta extraño y mantén con vida a tus habitantes.",
+    "imagen": "colonia-cero.png"
+  },
+  {
+    "id": 9,
+    "nombre": "Turbo Cordillera",
+    "estudio": "Neumático Lab",
+    "categoria": "Carreras",
+    "precioNormal": 36990,
+    "precioOferta": null,
+    "descripcion": "Carreras de montaña al atardecer: curvas cerradas, altura extrema y 20 circuitos por desbloquear.",
+    "imagen": "turbo-cordillera.png"
+  },
+  {
+    "id": 10,
+    "nombre": "Drift Pacífico",
+    "estudio": "Marejada",
+    "categoria": "Carreras",
+    "precioNormal": 21990,
+    "precioOferta": 16990,
+    "descripcion": "Derrapes sobre carreteras costeras con olas de fondo y un modo multijugador para ocho pilotos.",
+    "imagen": "drift-pacifico.png"
+  }
+]
